@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(to right, rgb(20, 147, 220),rgb(17, 54, 71)) ;
+        }
+        .box{
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0red, 0green, 0blue, 0.8);
+            padding: 15px;
+            border-radius: 15px;
+            width: 20%;
+        }
+        fieldset{
+           
+        }
+        legend{
+            border: 1px solid dodgerblue;
+            padding: 10px;
+            text-align: center;
+            background-color: dodgerblue;
+            border-radius: 15px;
+            
+        }
+        .inputbox{
+            position: relative;
+
+        }
+        .inputUser{
+            background: none;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            color: white;
+            font-size: 15px;
+            width: 100%;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="">
+            <fieldset>
+                <legend><b>cadastro</b>
+                    <br><br>
+                    <div class="inputbox">
+                        <input type="text" name="nome" id="nome" class="inputUser" required>
+                        <label for="nome">nome </label>
+                    </div> 
+                    <br><br>
+                    <div class="inputbox">
+                        <input type="text" name="email" id="email" class="inputUser" required>
+                        <label for="nome">email</label>
+                    </div>
+                    <br><br>
+                    <div class="inputbox">
+                        <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                        <label for="nome">telefone</label>
+                    </div>
+                    <br><br>
+                        <input type="radio" id="estudante" name="user" value="estudante" required>
+                        <label for="estudante">Estudante</label> 
+                        <input type="radio" id="professor" name="user" value="professor" required>
+                        <label for="professor">Professor</label>
+                        <input type="radio" id="outro" name="user" value="outro" required>
+                        <label for="outro">Outro</label>  
+                        <br><br>
+                        <br><br>
+                        <div class="inputbox">
+                            <input type="number" name="senha" id="senha" class="inputUser" required>
+                            <label for="nome">senha</label>
+                        </div> 
+                        <br><br>              
+                        <input type="submit" name="submit" id="submit">
+                </legend>
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+</html>
