@@ -12,11 +12,10 @@ body {
 
 
     color: white;
-    
     opacity: 5;
     font-family: 'roboto', sans-serif;
     -webkit-font-smoothing: antialiased !important;
-    background-image: linear-gradient(to right, rgb(0, 92, 197),rgb(90, 20, 220)) ;
+    background-image: linear-gradient(to right, rgb(20, 147, 220),rgb(22, 68, 90)) ;
 
     
     
@@ -104,7 +103,7 @@ section.sobre{
     bottom: 150px;
     right: 150px; 
     width: 500px;
-    height: 500px;
+    height: 550px;
     color: black; 
     margin: 20px 0;
     font-size: 24px;
