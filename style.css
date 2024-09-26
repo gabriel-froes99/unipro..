@@ -1,9 +1,9 @@
    
 {
-    margin: 0;
-    padding: 0;
+    margin 0
+    padding 0
 
-    box-sizing: border-box;
+    box-sizing border-box
 
 }
 
@@ -16,7 +16,7 @@ body {
     opacity: 5;
     font-family: 'roboto', sans-serif;
     -webkit-font-smoothing: antialiased !important;
-    background-color: color-mix(in srgb, rgb(185, 185, 185) 30%, rgb(212, 212, 212) 50%);
+    background-image: linear-gradient(to right, rgb(0, 92, 197),rgb(90, 20, 220)) ;
 
     
     
@@ -101,15 +101,21 @@ section.sobre{
 
 .novas{
     position:absolute;
-    bottom: -150px;
-    right: -150px; 
+    bottom: 150px;
+    right: 150px; 
     width: 500px;
     height: 500px;
-    border-radius: 50%;
     color: black; 
     margin: 20px 0;
-    font-size: 14px;
+    font-size: 24px;
     font-weight: bold;
+    margin-top: 100px;
+    background-color: rgba(0red, 0green, 0blue, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+    width: 20%;
+   
+   
     
 }
 
@@ -128,7 +134,7 @@ section.sobre{
 
 .texto-sobre button{
     border: 0;
-    background-color: color-mix(in srgb, rgb(0, 0, 0) 50%, rgb(94, 198, 250) 90%); 
+    background-color: color-mix(in srgb, rgb(0, 0, 0) 50%, rgb(90, 20, 220) 90%); 
     color: white;
     border-radius: 10px;
     width: 100px;
