@@ -1,59 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inovações</title>
-    <link href="style.css" rel="stylesheet"/>
+    <title>Inovações</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: linear-gradient(to right, #f8f9fa, #e9ecef); 
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
 
+        header {
+            background-color: #174777;
+            padding: 20px 0;
+        }
+
+        .navbar {
+            padding: 0;
+        }
+
+        .navbar-brand img {
+            max-height: 50px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f8f9fa !important;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-left: 20px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
+            transform: scale(1.1);
+        }
+
+        .btn-custom {
+            background-color: #174777;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #ffc107;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .rounded-font {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2.5rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+            background-color: #ffc107;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 <body>
-
     <header>
-        <div class="centerclass">
-            <div class="logo"><img src="unipro.jpeg.webp" /></div><!--logo-->
-                <div class="menu">
-                    <a href="cadastro.html">cadastro</a>
-                    <a href="#">home</a>
-                    <a href="#">login</a>
-                    <a href="#">contate-nos</a>
-                </div><!--menu-->
-            
-        </div>
-
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="unipro.jpeg.webp" alt="Logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastro.html">Cadastro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contate-nos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
-    <section class="sobre">
-
-    
-    <div class="extras">
-
-    </div><!--extras-->
-    <div class="novas">
-        <p>divulgue suas ideias e projetos na Unipro<br/> faça parcerias com outros alunos e conheça a ideias diferentes<br/> adicione comentarios e sugestões e muito mais.<br/>
-            Aproveite a oportunidade de alcançar uma maior visibilidade para a sua ideia<br/> faça parte da Unipro</p>
-        
-    </div><!--novas-->
-    <div class="center">
-        <div class="texto-sobre">
-            <h1><span style="color: black;">projetos</span><br/><span style="color: black;">inovação</span><br/><span style="color: rgb(0, 0, 0);">empreendimento</span></h1>
-            <p>O lugar certo para você divulgar seus projetos<br>  podendo fazer parcerias com  outros projetos de sua universidade.<br/>
-                Faça parte desta grande comunidade
-            </p>
-            <button>Saiba mais</button>
+    <section class="sobre py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-4">
+                    <h1 class="display-4 rounded-font"><span style="color: #343a40;">Projetos</span><br/><span style="color: #343a40;">Inovação</span><br/><span style="color: #343a40;">Empreendimento</span></h1>
+                    <div class="divider"></div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <p>Bem-vindo ao nosso site de inovações. Aqui você encontrará os projetos mais recentes e inovadores.</p>
+                    <p>Navegue pelo nosso site para saber mais sobre nossas iniciativas e como você pode se envolver.</p>
+                    <button class="btn-custom">Saiba Mais</button>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="imgp">
-       
-    </div>
-    </section>  
-    
-        
-   
-    
-       
-       
-    
-
-    
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
