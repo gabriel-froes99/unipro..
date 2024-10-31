@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,7 +80,64 @@
             margin: 0;
         }
 
-       
+        /* Botões de curtida e comentário */
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .like-button, .comment-button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .heart-icon, .comment-icon {
+            font-size: 20px;
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .like-button.liked .heart-icon {
+            color: #e74c3c;
+        }
+
+        .like-count, .comment-count {
+            margin-left: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Seção de comentários */
+        .comment-section {
+            display: none;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .comment-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .comment {
+            background-color: #f1f1f1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -91,27 +148,70 @@
     <div class="feed">
         <div class="post">
             <div class="post-header">
-            <img class="post-image" src="unipro.jpeg.webp" alt="Post Image">
-                <div class="username">......</div>
-            </div>
-            <img class="post-image" src="unipro.jpeg.webp" alt="Post Image">
-            <div class="post-footer">
-                <p><strong>......</strong> </p>
-            </div>
-            
-        </div>
-
-        <div class="post">
-            <div class="post-header">
                 <img src="unipro.jpeg.webp" alt="Profile Image">
-                <div class="username">.....</div>
+                <div class="username">Usuário</div>
             </div>
             <img class="post-image" src="unipro.jpeg.webp" alt="Post Image">
             <div class="post-footer">
-                <p><strong>.....</strong></p>
+                <p><strong>Descrição do post...</strong></p>
+                <!-- Div para agrupar botões de curtida e comentários -->
+                <div class="action-buttons">
+                    <div class="like-button" onclick="toggleLike(this)">
+                        <span class="heart-icon">&#10084;</span>
+                        <span class="like-count">0</span>
+                    </div>
+                    <div class="comment-button" onclick="toggleComments(this)">
+                        <span class="comment-icon">&#128172;</span>
+                        <span class="comment-count">0</span>
+                    </div>
+                </div>
+                <!-- Seção de Comentários -->
+                <div class="comment-section">
+                    <input type="text" class="comment-input" placeholder="Adicione um comentário..." onkeypress="addComment(event, this)">
+                    <ul class="comment-list"></ul>
+                </div>
             </div>
-           
         </div>
     </div>
+
+    <script>
+        // Função de curtir
+        function toggleLike(element) {
+            const likeCount = element.querySelector(".like-count");
+            let count = parseInt(likeCount.textContent);
+
+            if (element.classList.contains("liked")) {
+                element.classList.remove("liked");
+                likeCount.textContent = count - 1;
+            } else {
+                element.classList.add("liked");
+                likeCount.textContent = count + 1;
+            }
+        }
+
+        // Função para abrir/fechar a seção de comentários
+        function toggleComments(element) {
+            const commentSection = element.parentElement.nextElementSibling;
+            commentSection.style.display = commentSection.style.display === "flex" ? "none" : "flex";
+        }
+
+        // Função para adicionar comentário
+        function addComment(event, inputElement) {
+            if (event.key === "Enter" && inputElement.value.trim() !== "") {
+                const commentList = inputElement.nextElementSibling;
+                const newComment = document.createElement("li");
+                newComment.className = "comment";
+                newComment.textContent = inputElement.value.trim();
+
+                commentList.appendChild(newComment);
+
+                // Atualiza contador de comentários
+                const commentCount = inputElement.parentElement.previousElementSibling.querySelector(".comment-count");
+                commentCount.textContent = parseInt(commentCount.textContent) + 1;
+
+                inputElement.value = ""; // Limpa o campo de input
+            }
+        }
+    </script>
 </body>
 </html>
