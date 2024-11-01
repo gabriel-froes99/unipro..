@@ -79,8 +79,7 @@
         .post-footer p {
             margin: 0;
         }
-
-        /* Botões de curtida e comentário */
+        
         .action-buttons {
             display: flex;
             align-items: center;
@@ -111,7 +110,7 @@
             color: #333;
         }
 
-        /* Seção de comentários */
+        
         .comment-section {
             display: none;
             flex-direction: column;
@@ -154,7 +153,7 @@
             <img class="post-image" src="unipro.jpeg.webp" alt="Post Image">
             <div class="post-footer">
                 <p><strong>Descrição do post...</strong></p>
-                <!-- Div para agrupar botões de curtida e comentários -->
+                
                 <div class="action-buttons">
                     <div class="like-button" onclick="toggleLike(this)">
                         <span class="heart-icon">&#10084;</span>
@@ -165,7 +164,7 @@
                         <span class="comment-count">0</span>
                     </div>
                 </div>
-                <!-- Seção de Comentários -->
+                
                 <div class="comment-section">
                     <input type="text" class="comment-input" placeholder="Adicione um comentário..." onkeypress="addComment(event, this)">
                     <ul class="comment-list"></ul>
@@ -175,7 +174,7 @@
     </div>
 
     <script>
-        // Função de curtir
+       
         function toggleLike(element) {
             const likeCount = element.querySelector(".like-count");
             let count = parseInt(likeCount.textContent);
@@ -189,13 +188,13 @@
             }
         }
 
-        // Função para abrir/fechar a seção de comentários
+       
         function toggleComments(element) {
             const commentSection = element.parentElement.nextElementSibling;
             commentSection.style.display = commentSection.style.display === "flex" ? "none" : "flex";
         }
 
-        // Função para adicionar comentário
+        
         function addComment(event, inputElement) {
             if (event.key === "Enter" && inputElement.value.trim() !== "") {
                 const commentList = inputElement.nextElementSibling;
@@ -205,11 +204,11 @@
 
                 commentList.appendChild(newComment);
 
-                // Atualiza contador de comentários
+                
                 const commentCount = inputElement.parentElement.previousElementSibling.querySelector(".comment-count");
                 commentCount.textContent = parseInt(commentCount.textContent) + 1;
 
-                inputElement.value = ""; // Limpa o campo de input
+                inputElement.value = ""; 
             }
         }
     </script>
