@@ -1,23 +1,23 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    http_response_code(405);
+    http_response_code(response_code: 405);
     echo "Método não permitido";
     exit();
 }
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ini_set(option: 'display_errors', value: 1);
+ini_set(option: 'display_startup_errors', value: 1);
+error_reporting(error_level: E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $servername = "localhost";
     $username = "root";
-    $password = ""; a
+    $password = ""; 
     $dbname = "unipro_db";
 
     
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli(hostname: $localhost, username: $root, password: null,  database: $unipro_db);
 
     
     if ($conn->connect_error) {
@@ -32,9 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['senha'];
 
    
-    $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, telefone, perfil, senha) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $nome, $email, $telefone, $perfil, $senha);
-
+    $stmt = $conn->prepare(query: "INSERT INTO usuarios (nome, email, telefone, perfil, senha) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param(types: "sssss", var: $nome, vars: $email, int: $telefone, int: $perfil, int:$senha);
    
     if ($stmt->execute()) {
         echo "Cadastro realizado com sucesso!";
@@ -46,4 +45,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
-?>
