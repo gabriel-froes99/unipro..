@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $servername = "localhost";
     $username = "root";
-    $password = ""; a
+    $password = ""; 
     $dbname = "unipro_db";
 
     
