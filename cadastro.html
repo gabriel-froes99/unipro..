@@ -97,31 +97,6 @@
     </div>
 </body>
 </html>
-
-    <script>
-       
-        function enviarDados() {
-            const form = document.getElementById("formCadastro");
-            const formData = new FormData(form);
-
-            fetch("cadastro.php", {
-                method: "POST",
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    alert(data.message);
-                    form.reset(); 
-                } else {
-                    alert(data.message);
-                }
-            })
-            .catch(error => {
-                console.error("Erro ao enviar os dados:", error);
-                alert("Erro ao enviar os dados. Tente novamente.");
-            });
-        }
-    </script>
+ 
 </body>
 </html>
