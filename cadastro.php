@@ -13,9 +13,32 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
+<<<<<<< HEAD
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Obtém os dados do formulário
+=======
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $servername = "localhost";
+    $username = "root";
+    $password = ""; 
+    $dbname = "unipro_db";
+
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    
+    if ($conn->connect_error) {
+        die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+    }
+
+    
+>>>>>>> 8fe7e9e64d9b6a51fccf83d01d40b49e1b821f6f
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
@@ -39,7 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Fecha o statement
     $stmt->close();
 }
+<<<<<<< HEAD
 
 // Fecha a conexão com o banco de dados
 $conn->close();
 ?>
+=======
+?>
+>>>>>>> 8fe7e9e64d9b6a51fccf83d01d40b49e1b821f6f
