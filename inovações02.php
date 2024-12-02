@@ -83,14 +83,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
+                        
+                            <a class="nav-link" href="cadastroo.php">cadastro</a>
+                       
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastro.html">Cadastro</a>
+                            <a class="nav-link" href="paginap.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="paginap.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html">Login</a>
+                            <a class="nav-link" href="login.php">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Contate-nos</a>

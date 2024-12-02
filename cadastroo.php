@@ -1,3 +1,22 @@
+<?php
+if(isset($_POST['submit']))
+{
+    //print_r($_POST['nome']);
+   // print_r($_POST['email']);
+   // print_r($_POST['telefone']);
+    //print_r($_POST['senha']);
+
+    include_once('cadastro.php');
+    $nome = $_POST['nome'];
+    $email = $_POST["email"];
+    $telefone = $_POST['telefone']; 
+    $senha = $_POST['senha']; 
+    $result = mysqli_query($mysqli, "INSERT INTO usuarios(nome, email, telefone,senha) VALUES('$nome','$email','$telefone','$senha')");
+    
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +79,7 @@
 </head>
 <body>
     <div class="box">
-        <form action="cadastro.php" method="post">
+        <form action="cadastroo.php" method="post">
             <fieldset>
                 <legend><b>Cadastro</b></legend>
                 <br><br>
@@ -79,12 +98,7 @@
                     <label for="telefone">Telefone</label>
                 </div>
                 <br><br>
-                <input type="radio" id="estudante" name="perfil" value="estudante" required>
-                <label for="estudante">Estudante</label> 
-                <input type="radio" id="professor" name="perfil" value="professor" required>
-                <label for="professor">Professor</label>
-                <input type="radio" id="outro" name="perfil" value="outro" required>
-                <label for="outro">Outro</label>  
+                
                 <br><br>
                 <div class="inputbox">
                     <input type="password" name="senha" id="senha" class="inputUser" required>

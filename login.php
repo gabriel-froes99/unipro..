@@ -58,10 +58,11 @@
 <body>
     <div class="login-container">
         <h2>Login </h2>
-        <form action="/admin/login" method="post">
-            <input type="text" name="username" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Senha" required>
-             <button type="submit">Entrar</button>
+        
+        <form action="testelogin.php" method="post">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input class="login-container button" type="submit" name="submit" value="enviar">
         </form>
     </div>
 </body>
