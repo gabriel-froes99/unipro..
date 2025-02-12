@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #6c7a89, #2c3e50);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        header {
+            background: #34495e;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        header a img {
+            width: 80px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        header input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+        }
+
+        header .brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #ecf0f1;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .feed {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .post {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            color: #333;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .post-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-header .username {
+            font-weight: bold;
+        }
+
+        .image-slider {
+            position: relative;
+            width: 100%;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .image-slider img.active {
+            display: block;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .slider-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .post-footer {
+            padding: 10px;
+        }
+
+        .post-footer p {
+            margin: 0;
+        }
+
+        .toggle-text-button {
+            color: #3498db;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .like-button, .comment-button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
+        .heart-icon, .comment-icon {
+            font-size: 20px;
+            color: #bbb;
+        }
+
+        .like-button.liked .heart-icon {
+            color: #e74c3c;
+        }
+
+        .like-count, .comment-count {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        .comment-section {
+            display: none;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .comment-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .comment {
+            background-color: #f1f1f1;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="inovações02.php.html"><img src="unipro.jpeg.webp" alt="Logo Unipro"></a>
+        <div class="brand">Unipro</div>
+        <input type="text" placeholder="Buscar...">
+    </header>
+
+    <div class="feed">
+        <div class="post">
+            <div class="post-header">
+                <img src="unipro.jpeg.webp" alt="Profile Image">
+                <div class="username">Usuário1</div>
+            </div>
+            <div class="image-slider">
+                <img src="infinity.jpeg.jfif" alt="Imagem 1" class="active">
+                <img src="infinity2.jpeg.jfif" alt="Imagem 2">
+                <img src="infinity3.jpeg.jpg" alt="Imagem 3">
+                <div class="slider-controls">
+                    <button class="slider-button" onclick="prevImage(this)">&#10094;</button>
+                    <button class="slider-button" onclick="nextImage(this)">&#10095;</button>
+                </div>
+            </div>
+            <div class="post-footer">
+                <p class="description">
+                    <span class="short-text">
+                        <strong>Infinity Gamer:</strong> um projeto feito com o intuito de simplificar e melhorar o jeito com que a compra e venda de jogos são feitas
+                    </span>
+                    <span class="full-text" style="display: none;">
+                        <strong>Infinity Gamer:</strong>um projeto feito com o intuito de simplificar e melhorar o jeito com que a compra e venda de jogos são feitas,uma experiência completa para gamers de todos os estilos. 
+                    </span>
+                    <button class="toggle-text-button" onclick="toggleDescription(this)">Mostrar mais</button>
+                </p>
+                <div class="action-buttons">
+                    <div class="like-button" onclick="toggleLike(this)">
+                        <span class="heart-icon">&#10084;</span>
+                        <span class="like-count">0</span>
+                    </div>
+                    <div class="comment-button" onclick="toggleComments(this)">
+                        <span class="comment-icon">&#128172;</span>
+                        <span class="comment-count">0</span>
+                    </div>
+                </div>
+                <div class="comment-section">
+                    <input type="text" class="comment-input" placeholder="Adicione um comentário..." onkeypress="addComment(event, this)">
+                    <ul class="comment-list"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <img src="unipro.jpeg.webp" alt="Profile Image">
+                <div class="username">Usuário2</div>
+            </div>
+            <div class="image-slider">
+                <img src="unipro.jpeg.webp" alt="Imagem 1" class="active">
+                <div class="slider-controls">
+                    <button class="slider-button" onclick="prevImage(this)">&#10094;</button>
+                    <button class="slider-button" onclick="nextImage(this)">&#10095;</button>
+                </div>
+            </div>
+            <div class="post-footer">
+                <p class="description">
+                    <span class="short-text">
+                        <strong>Unipro:</strong> empresa com foco em inovações tecnológicas no mercado.
+                    </span>
+                    <span class="full-text" style="display: none;">
+                        <strong>Unipro:</strong> empresa com foco em inovações tecnológicas no mercado, buscando oferecer soluções eficientes e rápidas para nossos clientes.
+                    </span>
+                    <button class="toggle-text-button" onclick="toggleDescription(this)">Mostrar mais</button>
+                </p>
+                <div class="action-buttons">
+                    <div class="like-button" onclick="toggleLike(this)">
+                        <span class="heart-icon">&#10084;</span>
+                        <span class="like-count">0</span>
+                    </div>
+                    <div class="comment-button" onclick="toggleComments(this)">
+                        <span class="comment-icon">&#128172;</span>
+                        <span class="comment-count">0</span>
+                    </div>
+                </div>
+                <div class="comment-section">
+                    <input type="text" class="comment-input" placeholder="Adicione um comentário..." onkeypress="addComment(event, this)">
+                    <ul class="comment-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDescription(button) {
+            const postFooter = button.parentElement;
+            const shortText = postFooter.querySelector(".short-text");
+            const fullText = postFooter.querySelector(".full-text");
+
+            if (shortText.style.display === "none") {
+                shortText.style.display = "inline";
+                fullText.style.display = "none";
+                button.textContent = "Mostrar mais";
+            } else {
+                shortText.style.display = "none";
+                fullText.style.display = "inline";
+                button.textContent = "Mostrar menos";
+            }
+        }
+
+        function toggleLike(likeButton) {
+            const likeCount = likeButton.querySelector(".like-count");
+            const heartIcon = likeButton.querySelector(".heart-icon");
+
+            likeButton.classList.toggle("liked");
+            if (likeButton.classList.contains("liked")) {
+                likeCount.textContent = parseInt(likeCount.textContent) + 1;
+                heartIcon.style.color = "#e74c3c";
+            } else {
+                likeCount.textContent = parseInt(likeCount.textContent) - 1;
+                heartIcon.style.color = "#bbb";
+            }
+        }
+
+        function toggleComments(commentButton) {
+            const commentSection = commentButton.closest(".post-footer").querySelector(".comment-section");
+            commentSection.style.display = commentSection.style.display === "none" ? "flex" : "none";
+        }
+
+        function addComment(event, input) {
+            if (event.key === "Enter" && input.value.trim() !== "") {
+                const commentList = input.closest(".comment-section").querySelector(".comment-list");
+                const newComment = document.createElement("li");
+                newComment.classList.add("comment");
+                newComment.textContent = input.value.trim();
+                commentList.appendChild(newComment);
+                input.value = "";
+            }
+        }
+
+        function prevImage(button) {
+            const images = button.closest(".image-slider").querySelectorAll("img");
+            const activeImage = button.closest(".image-slider").querySelector("img.active");
+            let prevImage = activeImage.previousElementSibling;
+
+            if (!prevImage) {
+                prevImage = images[images.length - 1];
+            }
+
+            activeImage.classList.remove("active");
+            prevImage.classList.add("active");
+        }
+
+        function nextImage(button) {
+            const images = button.closest(".image-slider").querySelectorAll("img");
+            const activeImage = button.closest(".image-slider").querySelector("img.active");
+            let nextImage = activeImage.nextElementSibling;
+
+            if (!nextImage) {
+                nextImage = images[0];
+            }
+
+            activeImage.classList.remove("active");
+            nextImage.classList.add("active");
+        }
+    </script>
+</body>
+</html>
